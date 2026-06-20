@@ -52,7 +52,6 @@ install (
   TARGETS 
     velop 
     velos
-    lidars
   DESTINATION lib/${PROJECT_NAME}
 )
 
@@ -61,8 +60,7 @@ install (
     # meshes
     models
     worlds
-    launch 
-    config
+    launch
   DESTINATION share/${PROJECT_NAME}
 )
 

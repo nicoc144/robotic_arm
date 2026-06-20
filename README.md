@@ -1,40 +1,40 @@
 # ROS2 + Gazebo Project 
 
 
-**Instructions to install ROS2 deb packages on Ubuntu**  
-LINK: [https://docs.ros.org/en/kilted/Installation/Ubuntu-Install-Debs.html](https://docs.ros.org/en/kilted/Installation/Ubuntu-Install-Debs.html)
+**Instructions to install ROS2 deb packages on Ubuntu (Make sure you have ROS2 Jazzy installed)**  
+LINK: [https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html)
 
 **Install the build tool for ROS2**
 ```bash
 sudo apt install python3-colcon-common-extensions
 ```
 
-**Install Gazebo for ROS2 Kilted**
+**Install Gazebo**
 ```bash
-sudo apt-get install ros-kilted-ros-gz
+    sudo apt-get install ros-${ROS_DISTRO}-ros-gz
 ```
 
 **Run this command on every new shell to have access to ROS 2 commands**
 ```bash
-source /opt/ros/kilted/setup.bash
+source /opt/ros/jazzy/setup.bash
 ```
  
 **Or add this to the shell startup script** 
 ```bash
-echo "source /opt/ros/kilted/setup.bash" >> ~/.bashrc
+echo "source /opt/ros/jazzy/setup.bash" >> ~/.bashrc
 ```
 
-**Run this command inside the 'ros_ws' directory to compile the workspace packages**
+**Run this command inside the workspace directory to compile the workspace packages**
 ```bash
 colcon build
 ```
 
-**Run this command inside the 'ros_ws' directory to make ROS aware of the newly compiled packages**
+**Run this command inside the workspace directory to make ROS aware of the newly compiled packages**
 ```bash
 source install/setup.bash
 ```
 
-**Run this command inside the 'ros_ws' directory to view the simulation**
+**Run this command inside the workspace directory to view the simulation**
 ```bash
 ros2 launch diff_drive bot_launch.py
 ```

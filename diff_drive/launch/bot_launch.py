@@ -30,7 +30,7 @@ def generate_launch_description():
                 # arguments = [flag]
             arguments = [
                 '-file', bot_model_path,
-                '-name', 'diff_drive_blu'
+                '-name', 'diff_drive_blu',
                 '-x', '0',
                 '-y', '0',
                 '-z', '0.325',
@@ -66,8 +66,7 @@ def generate_launch_description():
         Node(
             package = 'ros_gz_bridge',
             executable = 'parameter_bridge',
-            arguments = ['/model/diff_drive_blu/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist',
-                        '/model/diff_drive_blu/chassis_lidar/forward@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan'],
+            arguments = ['/model/diff_drive_blu/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist'],
             output = 'screen'
         )
     ])
