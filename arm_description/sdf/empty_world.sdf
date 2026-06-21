@@ -1,0 +1,40 @@
+<?xml version='1.0'?>
+
+<!--
+    This is a flat, empty world environment for the robotic arm.
+-->
+
+<sdf version="1.11">
+    <world name="empty">
+        <model name="flat_plane">
+            <pose> 0.0 0.0 0.0 0.0 0.0 0.0 </pose>
+            <static> true </static>
+            <link name="link">
+                <visual name="visual">
+                    <geometry>
+                        <plane>
+                            <size> 20.0 20.0 </size>
+                        </plane>
+                    </geometry>
+                    <material>
+                        <ambient> 1.0 0.5 0.0 1.0 </ambient>
+                        <diffuse> 1.0 0.5 0.0 1.0 </diffuse>
+                    </material>
+                </visual>
+                <collision name="collision">
+                    <geometry>
+                        <plane>
+                            <size> 20.0 20.0 </size>
+                        </plane>
+                    </geometry>
+                </collision>
+            </link>
+        </model>
+        <light type="directional" name="sun">
+            <pose> 0.0 0.0 10.0 0.0 0.0 0.0 </pose>
+            <cast_shadows> true </cast_shadows>
+            <light_on> true </light_on>
+            <intensity> 1.0 </intensity>
+        </light>
+    </world>
+</sdf>

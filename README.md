@@ -42,3 +42,12 @@ source install/setup.bash
 ```bash
 ros2 launch [package-name] [launch-file.py]
 ```
+
+## Resources for completing the project:
+
+### AI
+AI was used to architect the overall structure of this codebase, and for verification that the codebase is following the best software engineering practices.
+Model used: Anthropic's Claude Opus 4.8 High (web)
+
+### sdf
+All sdf files were written by hand, sdformat.org was the main resource used for documentation and specification. [sdformat.org](https://sdformat.org/spec/1.11/sdf/)
