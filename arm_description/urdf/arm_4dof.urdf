@@ -1,0 +1,195 @@
+<?xml version='1.0'?>
+
+<!--
+    This is a 4 degree-of-freedom arm made from simple geometric shapes.
+    NOTE: Primary file used to load the arm in rviz and gazebo.
+-->
+
+<robot name="arm_4dof">
+
+    <!--
+        Colors
+    -->
+
+    <material name="drk_grey">
+        <color rgba="0.3 0.3 0.3 1.0"/>
+    </material>
+    <material name="lt_grey">
+        <color rgba="0.8 0.8 0.8 1.0"/>
+    </material>
+
+    <!--
+        Links
+    -->
+
+    <link name="world"/>
+    <link name="base_link">
+        <visual>
+            <origin xyz="0.0 0.0 0.15"/>
+            <geometry>
+                <cylinder length="0.3" radius="1.0"/>
+            </geometry>
+            <material name="drk_grey"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.15"/>
+            <geometry>
+                <cylinder length="0.3" radius="1.0"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.283"/>
+            <inertia ixx="0.073" iyy="0.073" izz="0.142" ixy="0.0" ixz="0.0" iyz="0.0"/>
+        </inertial>
+    </link>
+    <link name="shoulder_link">
+        <visual>
+            <origin xyz="0.0 0.0 0.2"/>
+            <geometry>
+                <cylinder length="0.4" radius="0.6"/>
+            </geometry>
+            <material name="lt_grey"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.2"/>
+            <geometry>
+                <cylinder length="0.4" radius="0.6"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.45"/>
+            <inertia ixx="0.0465" iyy="0.0465" izz="0.081" ixy="0.0" ixz="0.0" iyz="0.0"/>
+        </inertial>
+    </link>
+    <link name="upper_arm_link">
+        <visual>
+            <origin xyz="0.0 0.0 1.6"/>
+            <geometry>
+                <box size="0.5 0.5 3.0"/>
+            </geometry>
+            <material name="drk_grey"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 1.6"/>
+            <geometry>
+                <box size="0.5 0.5 3.0"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="1.570796 0.0 0.0"/>
+            <geometry>
+                <cylinder length="0.6" radius="0.2"/>
+            </geometry>
+            <material name="lt_grey"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="1.570796 0.0 0.0"/>
+            <geometry>
+                <cylinder length="0.6" radius="0.2"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.75"/>
+            <inertia ixx="0.578" iyy="0.578" izz="0.031" ixy="0.0" ixz="0.0" iyz="0.0"/>
+        </inertial>
+    </link>
+    <link name="forearm_link">
+        <visual>
+            <origin xyz="0.0 0.0 1.6"/>
+            <geometry>
+                <box size="0.5 0.5 3.0"/>
+            </geometry>
+            <material name="drk_grey"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 1.6"/>
+            <geometry>
+                <box size="0.5 0.5 3.0"/>
+            </geometry>
+        </collision>
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="1.570796 0.0 0.0"/>
+            <geometry>
+                <cylinder length="0.6" radius="0.2"/>
+            </geometry>
+            <material name="lt_grey"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="1.570796 0.0 0.0"/>
+            <geometry>
+                <cylinder length="0.6" radius="0.2"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.75"/>
+            <inertia ixx="0.578" iyy="0.578" izz="0.031" ixy="0.0" ixz="0.0" iyz="0.0"/>
+        </inertial>
+    </link>
+    <link name="end_effector_link">
+        <visual name="link_visual">
+            <origin xyz="0.0 0.0 0.4" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <cylinder length="0.4" radius="0.05"/>
+            </geometry>
+            <material name="drk_grey"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.4" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <cylinder length="0.4" radius="0.05"/>
+            </geometry>
+        </collision>
+        <visual name="joint_visual">
+            <origin xyz="0.0 0.0 0.0" rpy="1.570796 0.0 0.0"/>
+            <geometry>
+                <cylinder length="0.6" radius="0.2"/>
+            </geometry>
+            <material name="lt_grey"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="1.570796 0.0 0.0"/>
+            <geometry>
+                <cylinder length="0.6" radius="0.2"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.025"/>
+            <inertia ixx="0.001" iyy="0.001" izz="0.0006" ixy="0.0" ixz="0.0" iyz="0.0"/>
+        </inertial>
+    </link>
+
+    <!--
+        Joints
+    -->
+    
+    <joint name="fixed_world" type="fixed">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="world"/>
+        <child link="base_link"/>
+    </joint>
+    <joint name="shoulder_joint_yaw" type="continuous">
+        <origin xyz="0.0 0.0 0.3" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="shoulder_link"/>
+        <axis xyz="0.0 0.0 1.0"/>
+    </joint>
+    <joint name="shoulder_joint_pitch" type="continuous">
+        <origin xyz="0.0 0.0 0.5" rpy="0.0 0.0 0.0"/>
+        <parent link="shoulder_link"/>
+        <child link="upper_arm_link"/>
+        <axis xyz="0.0 1.0 0.0"/>
+    </joint>
+    <joint name="elbow_joint" type="continuous">
+        <origin xyz="0.0 0.0 3.2" rpy="0.0 0.0 0.0"/>
+        <parent link="upper_arm_link"/>
+        <child link="forearm_link"/>
+        <axis xyz="0.0 1.0 0.0"/>
+    </joint>
+    <joint name="wrist_joint" type="continuous">
+        <origin xyz="0.0 0.0 3.2" rpy="0.0 0.0 0.0"/>
+        <parent link="forearm_link"/>
+        <child link="end_effector_link"/>
+        <axis xyz="0.0 1.0 0.0"/>
+    </joint>
+
+</robot>

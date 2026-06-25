@@ -2,6 +2,7 @@
 
 <!--
     This is a 4 degree-of-freedom arm made from simple geometric shapes.
+    NOTE: Not used, gazebo uses the urdf version of this file instead.
 -->
 
 <sdf version="1.11">
@@ -14,7 +15,7 @@
         -->
 
         <link name="base_link">
-            <pose> 0.0 0.0 0.2 0.0 0.0 0.0 </pose>
+            <pose> 0.0 0.0 0.15 0.0 0.0 0.0 </pose>
             <visual name="visual">
                 <geometry>
                     <cylinder>
@@ -27,6 +28,14 @@
                         <diffuse> 0.3 0.3 0.3 1.0 </diffuse>
                 </material>
             </visual>
+            <collision name="collision">
+                <geometry>
+                    <cylinder>
+                        <radius> 1.0 </radius>
+                        <length> 0.3 </length>
+                    </cylinder>
+                </geometry>
+            </collision>
         </link>
         <link name="shoulder_link">
             <pose relative_to="shoulder_joint_yaw"> 0.0 0.0 0.0 0.0 0.0 0.0 </pose>
@@ -43,6 +52,15 @@
                         <diffuse> 0.8 0.8 0.8 1.0 </diffuse>
                 </material>
             </visual>
+            <collision name="collision">
+                <pose> 0.0 0.0 0.2 0.0 0.0 0.0 </pose>
+                <geometry>
+                    <cylinder>
+                        <radius> 0.6 </radius>
+                        <length> 0.4 </length>
+                    </cylinder>
+                </geometry>
+            </collision>
         </link>
         <link name="upper_arm_link">
             <pose relative_to="shoulder_joint_pitch"> 0.0 0.0 0.0 0.0 0.0 0.0 </pose>
@@ -58,6 +76,14 @@
                         <diffuse> 0.3 0.3 0.3 1.0 </diffuse>
                 </material>
             </visual>
+            <collision name="link_collision">
+                <pose> 0.0 0.0 1.6 0.0 0.0 0.0 </pose>
+                <geometry>
+                    <box>
+                        <size> 0.5 0.5 3.0 </size>
+                    </box>
+                </geometry>
+            </collision>
             <visual name="joint_visual">
                 <pose> 0.0 0.0 0.0 0.0 1.570796 0.0 </pose>
                 <geometry>
@@ -86,6 +112,14 @@
                         <diffuse> 0.3 0.3 0.3 1.0 </diffuse>
                 </material>
             </visual>
+            <collision name="link_collision">
+                <pose> 0.0 0.0 1.6 0.0 0.0 0.0 </pose>
+                <geometry>
+                    <box>
+                        <size> 0.5 0.5 3.0 </size>
+                    </box>
+                </geometry>
+            </collision>
             <visual name="joint_visual">
                 <pose> 0.0 0.0 0.0 0.0 1.570796 0.0 </pose>
                 <geometry>

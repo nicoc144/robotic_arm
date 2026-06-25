@@ -8,7 +8,7 @@ def generate_launch_description():
 
     arm_description_path = get_package_share_directory('arm_description')
     empty_world_path = os.path.join(arm_description_path, 'sdf/empty_world.sdf')
-    arm_4dof_path = os.path.join(arm_description_path, 'sdf/arm_4dof.sdf')
+    arm_4dof_path = os.path.join(arm_description_path, 'urdf/arm_4dof.urdf')
 
     return LaunchDescription([
         ExecuteProcess(
