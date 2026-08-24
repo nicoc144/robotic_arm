@@ -1,27 +1,35 @@
 import os
 from launch import LaunchDescription
 from launch.actions import ExecuteProcess
+from launch.substitutions import FileContent, LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
 
-    arm_description_path = get_package_share_directory('arm_description')
-    empty_world_path = os.path.join(arm_description_path, 'sdf/empty_world.sdf')
-    arm_4dof_path = os.path.join(arm_description_path, 'urdf/arm_4dof.urdf')
+    arm_description_path = get_package_share_directory("arm_description")
+    arm_urdf_path = os.path.join(arm_description_path, "urdf", "arm_4dof.urdf")
+    rviz_arm_config = os.path.join(arm_description_path, "rviz", "arm_config.rviz")
+
+    with open(arm_urdf_path, "r") as f:
+        urdf_file = f.read()
 
     return LaunchDescription([
-        ExecuteProcess(
-            cmd = ['gz', 'sim', empty_world_path], # cmd = [executable, arg1, arg2, ...]
-            output = 'screen'
+        Node(
+            package="robot_state_publisher",
+            executable="robot_state_publisher",
+            output="screen", # Print INFO/WARN/ERROR to console
+            parameters=[{"robot_description": urdf_file}]
         ),
         Node(
-            package='ros_gz_sim',
-            executable='create',
-            arguments=[
-                '-file', arm_4dof_path,
-                '-name', 'arm_4dof'
-            ],
-            output='screen'
+            package="joint_state_publisher",
+            executable="joint_state_publisher",
+            output="screen"
+        ),
+        Node(
+            package="rviz2",
+            executable="rviz2",
+            arguments=["-d", rviz_arm_config],
+            output="screen" # Print INFO/WARN/ERROR to console
         ),
     ])

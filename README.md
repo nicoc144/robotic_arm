@@ -6,6 +6,13 @@
 * 4-8GB of ram or more
 * Dedicated GPU with at least 1GB VRAM (Highly reccomended)
 
+**Run this in the directory you want to use for this project** 
+```
+mkdir arm_ws
+cd arm_ws
+git clone [link-to-this-repo]
+```
+
 **Instructions to install ROS2 deb packages on Ubuntu (Make sure you have ROS2 Jazzy installed)**  
 LINK: [ROS2 Jazzy Installation](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html)
 
@@ -28,7 +35,7 @@ sudo apt install python3-colcon-common-extensions
 sudo apt-get install ros-${ROS_DISTRO}-ros-gz
 ```
 
-**Run this command inside the workspace directory to compile the workspace packages**
+**Run this command inside arm_ws directory to compile the workspace packages**
 ```bash
 colcon build
 ```

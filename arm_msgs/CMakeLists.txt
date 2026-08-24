@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(arm_description)
+project(arm_msgs)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -7,13 +7,36 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
-# find_package(<dependency> REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
 
-install(
-    DIRECTORY
-    sdf urdf rviz
+# Build executable from source file
+add_executable(arm_msgs src/arm_msgs.cpp)
+
+# Tell compiler where the headers live
+target_include_directories(${PROJECT_NAME}
+  PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>)
+
+# Link ROS dependencies
+ament_target_dependencies(
+  arm_msgs
+  rclcpp
+  geometry_msgs
+  sensor_msgs
+)
+
+# Install the executable so 'ros run' can find it
+install(TARGETS
+  arm_msgs
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+# Install launch directory
+install(DIRECTORY
+    launch
     DESTINATION share/${PROJECT_NAME}
 )
 

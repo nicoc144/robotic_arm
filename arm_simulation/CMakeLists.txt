@@ -11,8 +11,7 @@ find_package(ament_cmake REQUIRED)
 # further dependencies manually.
 find_package(arm_description REQUIRED)
 
-install(
-    DIRECTORY
+install(DIRECTORY
     launch
     DESTINATION share/${PROJECT_NAME}
 )
