@@ -3,18 +3,16 @@
 <package format="3">
   <name>arm_simulation</name>
   <version>0.1.0</version>
-  <description> 
-    This package handles tasks relavant to the robotic arm simulation. 
+  <description>
+    This is a package for launching the Gazebo physics simulation of the arm.
   </description>
-  <maintainer email="nicolascacfl@gmail.com">nicoc144</maintainer>
+  <maintainer email="nicolascacfl@gmail.com">ncaballero7</maintainer>
   <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
-
-  <depend>arm_description</depend>
 
   <export>
     <build_type>ament_cmake</build_type>

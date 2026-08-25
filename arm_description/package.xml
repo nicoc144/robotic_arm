@@ -4,7 +4,7 @@
   <name>arm_description</name>
   <version>0.1.0</version>
   <description>
-    This package contains mostly asset files that define how the robot appears in simulation and rviz.
+    This package contains asset and config files that define how the robot appears in gazebo simulation or rviz.
   </description>
   <maintainer email="nicolascacfl@gmail.com">nicoc144</maintainer>
   <license>MIT</license>

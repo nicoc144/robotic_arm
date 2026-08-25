@@ -5,6 +5,18 @@
 * Quad core Intel i5 or equivalent
 * 4-8GB of ram or more
 * Dedicated GPU with at least 1GB VRAM (Highly reccomended)
+* It's not reccomended to run both Gazebo and Rviz with GUI if using WSL due to performance bottlenecks
+
+**If using WSL, make sure OpenGL is rendering using your GPU, these commands may help**
+```bash
+echo 'export GALLIUM_DRIVER=d3d12' >> ~/.bashrc
+echo 'export MESA_D3D12_DEFAULT_ADAPTER_NAME="NVIDIA"' >> ~/.bashrc
+```
+**Then either shutdown wsl or "source ~/.bashrc" and check that the GPU shows up in nvidia-smi that OpenGL is configured to use it**
+```
+nvidia-smi
+glxinfo | grep "OpenGL renderer"
+```
 
 **Run this in the directory you want to use for this project** 
 ```
@@ -48,6 +60,10 @@ source install/setup.bash
 **Run this command inside the workspace directory to launch packages**
 ```bash
 ros2 launch [package-name] [launch-file.py]
+```
+**Example for launching Rviz from the bringup package:**
+```bash
+ros2 launch arm_bringup arm_rviz_launch.py
 ```
 
 ## Resources for completing the project:

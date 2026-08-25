@@ -2,7 +2,7 @@
 
 <!--
     This is a 4 degree-of-freedom arm made from simple geometric shapes.
-    NOTE: Primary file used to load the arm in rviz and gazebo.
+    NOTE: Primary file used to load the arm in Rviz and Gazebo, adapted from 'arm_4dof.sdf'.
 -->
 
 <robot name="arm_4dof">

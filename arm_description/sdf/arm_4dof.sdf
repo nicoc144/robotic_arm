@@ -2,7 +2,11 @@
 
 <!--
     This is a 4 degree-of-freedom arm made from simple geometric shapes.
-    NOTE: Not used, gazebo uses the urdf version of this file instead.
+
+    DEPRECATED: Gazebo requires sdf files but rviz can't read sdf. Fortunately, Gazebo is able to convert 
+    urdf into sdf behind the scenes, so it's ideal to use the urdf arm for both Gazebo and Rviz to prevent 
+    version mismatches between the urdf and sdf files. The urdf arm was adapted from this sdf arm using 
+    online resources for converting sdf->urdf by hand.
 -->
 
 <sdf version="1.11">
