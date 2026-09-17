@@ -69,7 +69,7 @@ ros2 launch arm_bringup arm_rviz_launch.py
 ## Resources for completing the project:
 
 ### AI
-AI was used to plan the overall file structure of the project and to verify that the codebase is following the best software engineering practices. AI was also used to expedite the debugging process, but all code was written by hand (besides some boilerplace from the ros docs and the ros package builder).
+AI was used to plan the overall file structure of the project and to verify that the codebase is following the best software engineering practices. AI was also used to expedite the debugging process, but all code was written by hand (besides some ros boilerplate).
 Model used: Anthropic's Claude Opus 4.8 High (web)
 
 ### sdf and urdf
