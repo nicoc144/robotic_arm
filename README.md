@@ -1,5 +1,7 @@
 # ROS2 + Gazebo Robotic Arm Project
 
+## This project is currently a **work in progress**, the goal is to implement forward and inverse kinematics in a 4-dof using calculations and code written by hand.
+
 ### Preferred specs: 
 * Ubuntu 24.04 64-bit (bare metal, VM, or WSL)
 * Quad core Intel i5 or equivalent
